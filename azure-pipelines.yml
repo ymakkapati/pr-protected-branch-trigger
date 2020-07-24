@@ -1,0 +1,25 @@
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: 'ymakkapati/templates'
+      endpoint: 'new-github-service-connection'
+
+trigger:
+  branches:
+    include:
+    - master
+    - develop
+pr:
+  branches:
+    include:
+     - master
+     - develop
+
+jobs:
+- template: name.yml@templates  # Template reference
+  parameters:
+    name: Test1
+- template: name.yml@templates  # Template reference
+  parameters:
+    name: Second reference
